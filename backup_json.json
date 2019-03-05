@@ -1,0 +1,168 @@
+"questions": [
+  {
+    "id": 1,
+    "user": "Jonathan Choi",
+    "question": "When can I safely plant annuals in the spring?",
+    "answers": [
+      {"name": "Antoine Roquentin", "answer_str": "When you purchase annuals, condition them to the sunlight, wind, and night temperature for several days before planting them in the garden. Be prepared to protect them from a late-season freeze."},
+      {"name": "Jean P. Sarte", "answer_str": "Preferably as early as possible, in March or April."}
+    ],
+    "plant_id": 2
+  },
+  {
+    "id": 2,
+    "user": "Jenna Michaels",
+    "question": "Is conservation of orchids an important issue?",
+    "answers": {"name": "George Costanza", "answer_str": "Absolutely! Sadly, orchid species are becoming extinct faster than they can be described and classified. Threats to orchids originate primarily from loss of habitat and collecting."},
+    "plant_id": 1
+  },
+  {
+    "id": 3,
+    "user": "Mikey Clementine",
+    "question": "When can I cut back the leaves of daffodils and tulips?",
+    "answers": {"name": "Sam Malone", "answer_str": "Wait until the leaves have turned yellow before cutting them back with scissors. Don't pull on the leaves, or the bulb may come up with them."},
+    "plant_id": 3
+  },
+  {
+    "id": 4,
+    "user": "Colby Peters",
+    "question": "Is conservation of orchids an important issue?",
+    "answers": {"name": "Daphne Moon", "answer_str": "Absolutely! Sadly, orchid species are becoming extinct faster than they can be described and classified. Threats to orchids originate primarily from loss of habitat and collecting."},
+    "plant_id": 3
+  },
+  {
+    "id": 5,
+    "user": "Dante Williams",
+    "question": "What type of fertilizer is best for tomatoes?",
+    "answers": [
+      {"name": "Rodney DangerField", "answer_str": "An all-purpose fertilizer designed for vegetables and flowers will work."},
+      {"name": "Jet Li", "answer_str": "Avoid fertilizers that are high in nitrogen, because they stimulate stem and leaf growth, rather than flowers and fruit."}
+    ],
+    "plant_id": 5
+  },
+  {
+    "id": 6,
+    "user": "Meridith Sanders",
+    "question": "Do I need to stake my lilies?",
+    "answers": {"name": "Brucey Sprucey Lee", "answer_str": "Oriental and trumpet lilies produce large perfumed flowers and will need some support as they come in to bloom."},
+    "plant_id": 4
+  },
+  {
+    "id": 7,
+    "user": "Lorie Weissman",
+    "question": "When should I cut back my rhododendrons?",
+    "answers": [
+      {"name": "Stefan Sagmeister", "answer_str": "Early midsummer is the best time."},
+      {"name": "Albert Camus", "answer_str": "Cutting them back right after they bloom allows new growth to develop. New flower buds will form by the end of the growing season."}
+    ],
+    "plant_id": 6
+  },
+  {
+    "id": 8,
+    "user": "",
+    "question": "How much mulch should I use?",
+    "answers": [
+      {"name": "Herb Lubalin", "answer_str": "Applying three to four inches of mulch around your plants will help keep weeds down and will preserve soil moisture."},
+      {"name": "Frank Gehry", "answer_str": "Never place mulch directly around the base of your plants; keep mulch several inches away from the stems and leaves to avoid rot."}
+    ],
+    "plant_id": 7
+  },
+  {
+    "id": 9,
+    "user": "",
+    "question": "How can I get rid of slugs?",
+    "answers": [
+      {"name": "Mandy Peters", "answer_str": "Snip them with garden scissors or place shallow containers of beer as bait in the garden so slugs will crawl into them and drown."},
+      {"name": "Lionel Tobias", "answer_str": "Or, you can put on a pair of gloves and pick slugs up by hand late in the day or evening and drop them into soapy water."}
+    ],
+    "plant_id": 7
+  },
+  {
+    "id": 10,
+    "user": "",
+    "question": "What causes my radishes to be too hot?",
+    "answers": {"name": "Katt Williams", "answer_str": "The hotness of radishes results from the length of time they have grown rather than from their size. The radishes either grew too slowly or are too old."},
+    "plant_id": 8
+  },
+  {
+    "id": 11,
+    "user": "",
+    "question": "What causes small, sunken black areas near the end of peppers?",
+    "answers": [
+      {"name": "Fraiser Crane", "answer_str": "This condition is blossom-end rot that is actually more common in tomatoes. It is caused by a calcium deficiency brought on by drought, uneven water availability or pruning roots through deep cultivation. It is more prevalent during periods of high humidity."},
+      {"name": "Marty Mar", "answer_str": "Regular irrigation and mulching can help to prevent this condition. Peppers are still edible."}
+    ],
+    "plant_id": 8
+  },
+  {
+    "id": 12,
+    "user": "",
+    "question": "Is it normal for the foliage to be a light purple in its early stages?",
+    "answers": {"name": "Tommy Ain't Got No Job", "answer_str": "This is one of the interesting traits of the Yellow Witherspoon flower."},
+    "plant_id": 8
+  },
+  {
+    "id": 13,
+    "user": "",
+    "question": "Can squash varieties cross-pollinate with one another or with pumpkins in the garden?",
+    "answers": [
+      {"name": "Fraiser Crane", "answer_str": "Yes, and no. Squash varieties can pollinate each other if they are the same species."},
+      {"name": "Niles Crane", "answer_str": "Cross-pollination only affects the resulting vegetable if you are saving seed to replant next year. That's when you get a pumzinni or something to that effect."}
+    ],
+    "plant_id": 9
+  },
+  {
+    "id": 14,
+    "user": "",
+    "question": "Can I protect my ash tree from emerald ash borers?",
+    "answers": {"name": "Katt Williams", "answer_str": "Apply a systemic insecticide such as Bayer Grub control with Merit, watering it in thoroughly, or hire a tree care service to inject such a product into the root flares. Fertilize the tree each year and keep it well watered and throughout the growing season."},
+    "plant_id": 9
+  },
+  {
+    "id": 15,
+    "user": "",
+    "question": "The leaves of my Fiddle Leaf Fig are starting to turn black? ",
+    "answers": [
+      {"name": "Jerry Seinfeld", "answer_str": "Does your pot have a drainage hole? 2 cups of water on a schedule is not the ideal way to water any plant."},
+      {"name": "George Costanza", "answer_str": "Fiddle-leafed Figs tolerate several hours of direct sunlight each day quite well. More often than not, people don't provide enough light."},
+      {"name": "Larry David", "answer_str": "Water it as soon as the surface of the soil is dry. Allowing the soil to dry more than half an inch deep is too dry for this plant. When you water, slowly add water all around until you see some trickling through the drain holes and onto the pebbles. Water again when the top surface is dry."}
+    ],
+    "plant_id": 10
+  },
+  {
+    "id": 16,
+    "user": "",
+    "question": "Is Gold/Golden Joke an unregistered hybrid daylily?",
+    "answers": {"name": "Marty Mar", "answer_str": "Some people give 'garden names' to daylilies. One would hope that they wouldn't give their 'garden name' to someone when giving/selling a piece of a plant but it may happen. So, is it possible it is not actually a registered daylily but a seedling or unknown daylily that someone just called 'Gold Joke'?"},
+    "plant_id": 10
+  },
+  {
+    "id": 17,
+    "user": "",
+    "question": "Pear tree branches breaking off?",
+    "answers": [
+      {"name": "Lionel Tobias", "answer_str": "It is not unusual to have Pear Tree branches break off. The branches do get quite long, and that doesn't help."},
+      {"name": "Marty Mar", "answer_str": "If there is any fruit on the tree, racoons will climb up, and out on the limb, and break it off, going down with it."},
+      {"name": "Cole Shutyoassup", "answer_str": "Deer also, as they have no upper teeth, love to eat new growth on fruit trees or any tree, and in 'gumming' unto same, wreck it."}
+    ],
+    "plant_id": 10
+  },
+  {
+    "id": 18,
+    "user": "",
+    "question": "When is the earliest time I can transplant a 4' tall beautyberry? Is September to early",
+    "answers": {"name": "Amelie Porter", "answer_str": "You should be able to transplant your beautyberry this fall with no problems."},
+    "plant_id": 6
+  },
+  {
+    "id": 19,
+    "user": "",
+    "question": "How do I protect my plant from mold flies?",
+    "answers": [
+    {"name": "Mickey Rourke", "answer_str": "I've heard people say sticy fly traps work."},
+    {"name": "Bobby De Niro", "answer_str": "Placing pennies on top of the potting soil worked to eliminate fungus knats. 5 or 6 per pot. After they corroded I replaced with new ones. A penny's best value."}
+    ],
+    "plant_id": 6
+  }
+
+],
