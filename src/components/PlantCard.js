@@ -26,16 +26,16 @@ class PlantCard extends Component {
           {this.state.clicked === true
             ? (<div className="ui raised card">
                 <div className="detail-container">
-                  <span className="detail">Scientific Name:</span>
-                    <p>{this.props.plant.scientific_name}</p>
-                  <span className="detail">Family:</span>
-                    <p>{this.props.plant.family_name}</p>
-                  <span className="detail">Flower Color:</span>
-                    <p>{this.props.plant.flower_color}</p>
-                  <span className="detail">Foliage Color:</span>
-                    <p>{this.props.plant.foliage_color}</p>
-                  <span className="detail">Foliage Texture:</span>
-                    <p>{this.props.plant.foliage_texture}</p>
+                  <span>Scientific Name:</span>
+                    <p className="detail">{this.props.plant.scientific_name}</p>
+                  <span>Family:</span>
+                    <p className="detail">{this.props.plant.family_name}</p>
+                  <span>Flower Color:</span>
+                    <p className="detail">{this.props.plant.flower_color}</p>
+                  <span>Foliage Color:</span>
+                    <p className="detail">{this.props.plant.foliage_color}</p>
+                  <span>Foliage Texture:</span>
+                    <p className="detail">{this.props.plant.foliage_texture}</p>
                 </div>
 
                 <div>

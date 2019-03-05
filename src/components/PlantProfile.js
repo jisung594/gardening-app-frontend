@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Question from './Question';
 import Answer from './Answer';
-import QuestionForm from './QuestionForm'
+import QuestionForm from './QuestionForm';
+import AnswerForm from './AnswerForm';
 
 // const PlantProfile = (props) => {
 //   let { plant } = props;
@@ -11,10 +12,11 @@ class PlantProfile extends Component {
   state = {
     questions: [],
     clickedQuestion: {},
-    clicked: false
+    clickedQF: false,
+    clickedAF: false
   }
 
-// maybe move this, state, and all related functions into PlantCard
+// FETCHES QUESTIONS DATA FOR SPECIFIC PLANT ---------------
   componentDidMount() {
     fetch('http://localhost:3000/questions')
       .then(res => res.json())
@@ -28,33 +30,81 @@ class PlantProfile extends Component {
       })
   }
 
-
-  clickHandler = (questionObj) => {
+// ************************ QUESTION FORM ONLY *********************************
+  // saves the question clicked on (to state) ----------
+  clickHandlerQF = (questionObj) => {
     this.setState({
       clickedQuestion: questionObj
     })
   }
 
-
-  // shows / hides form
-  clickFormHandler = () => {
-    if (this.state.clicked === false) {
+  // shows / hides question form -----------------
+  clickFormHandlerQF = () => {
+    if (this.state.clickedQF === false) {
       this.setState({
-        clicked: true
+        clickedQF: true
       })
     } else {
       this.setState({
-        clicked: false
+        clickedQF: false
       })
     }
   }
 
+  // submit input from question form ------------
+  submitHandlerQF = (obj) => {
+    this.setState({
+      questions: [obj, ...this.state.questions]
+    })
+  }
+// -----------------------------------------------------------------------------
+
+// ************************ ANSWER FORM ONLY *********************************
+clickFormHandlerAF = () => {
+  if (this.state.clickedAF === false) {
+    this.setState({
+      clickedAF: true
+    })
+  } else {
+    this.setState({
+      clickedAF: false
+    })
+  }
+}
+
+submitHandlerAF = (obj) => {
+  fetch(`http://localhost:3000/questions/${this.state.clickedQuestion.id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      // how do you add the object to this question's list of answers **************
+      // [this.state.clickedQuestion.answers]: [obj, ...this.state.clickedQuestion.answers]
+      answers:
+        Array.isArray(this.state.clickedQuestion.answers) === true
+        ? [obj, ...this.state.clickedQuestion.answers]
+        : [obj, this.state.clickedQuestion.answers]
+
+    })
+  })
+}
+
+
 
   render() {
 
+    // let answersList = () => {
+    //   Array.isArray(this.state.clickedQuestion.answers) === true
+    //   ? this.state.clickedQuestion.answers.map(answerObj => {
+    //     return <Answer key={answerObj.name} answer={answerObj} />
+    //   })
+    //   : <Answer answer={this.state.clickedQuestion.answers} />
+    // }
+
 
     let questionsList = [...this.state.questions].map(questionObj => {
-      return <Question key={questionObj.id} questionObj={questionObj} plant={this.props.plant} clickHandler={this.clickHandler}/>
+      return <Question key={questionObj.id} questionObj={questionObj} plant={this.props.plant} clickHandler={this.clickHandlerQF} />
     })
 
 
@@ -75,36 +125,36 @@ class PlantProfile extends Component {
 
               <div className="wrapper-two">
                   <div>
-                    <label className="detail">Scientific Name:</label>
-                      <p>{this.props.plant.scientific_name}</p>
-                    <label className="detail">Family:</label>
-                      <p>{this.props.plant.family_name}</p>
-                    <label className="detail">Flower Color:</label>
-                      <p>{this.props.plant.flower_color}</p>
-                    <label className="detail">Foliage Color:</label>
-                      <p>{this.props.plant.foliage_color}</p>
-                    <label className="detail">Foliage Texture:</label>
-                      <p>{this.props.plant.foliage_texture}</p>
-                    <label className="detail">Shade Tolerance:</label>
-                      <p>{this.props.plant.shade_tolerance}</p>
-                    <label className="detail">Drought Tolerance:</label>
-                      <p>{this.props.plant.drought_tolerance}</p>
+                  <label>Scientific Name:</label>
+                      <p className="detail">{this.props.plant.scientific_name}</p>
+                    <label>Family:</label>
+                      <p className="detail">{this.props.plant.family_name}</p>
+                    <label>Flower Color:</label>
+                      <p className="detail">{this.props.plant.flower_color}</p>
+                    <label>Foliage Color:</label>
+                      <p className="detail">{this.props.plant.foliage_color}</p>
+                    <label>Foliage Texture:</label>
+                      <p className="detail">{this.props.plant.foliage_texture}</p>
+                    <label>Shade Tolerance:</label>
+                      <p className="detail">{this.props.plant.shade_tolerance}</p>
+                    <label>Drought Tolerance:</label>
+                      <p className="detail">{this.props.plant.drought_tolerance}</p>
                   </div>
                   <div>
-                    <label className="detail">Growth Period:</label>
-                      <p>{this.props.plant.growth_period}</p>
-                    <label className="detail">Bloom Period:</label>
-                      <p>{this.props.plant.bloom_period}</p>
-                    <label className="detail">Temperature Minimum:</label>
-                      <p>{this.props.plant.temperature_minimum}</p>
-                    <label className="detail">PH Minumum:</label>
-                      <p>{this.props.plant.ph_minimum}</p>
-                    <label className="detail">PH Maximum:</label>
-                      <p>{this.props.plant.ph_maximum}</p>
-                    <label className="detail">Mature Height:</label>
-                      <p>{this.props.plant.mature_height}</p>
-                    <label className="detail">Duration:</label>
-                      <p>{this.props.plant.duration}</p>
+                    <label>Growth Period:</label>
+                      <p className="detail">{this.props.plant.growth_period}</p>
+                    <label>Bloom Period:</label>
+                      <p className="detail">{this.props.plant.bloom_period}</p>
+                    <label>Temperature Minimum:</label>
+                      <p className="detail">{this.props.plant.temperature_minimum}</p>
+                    <label>PH Minumum:</label>
+                      <p className="detail">{this.props.plant.ph_minimum}</p>
+                    <label>PH Maximum:</label>
+                      <p className="detail">{this.props.plant.ph_maximum}</p>
+                    <label>Mature Height:</label>
+                      <p className="detail">{this.props.plant.mature_height}</p>
+                    <label>Duration:</label>
+                      <p className="detail">{this.props.plant.duration}</p>
                   </div>
               </div>
 
@@ -114,16 +164,16 @@ class PlantProfile extends Component {
               {/* ROW 2 -------------------------------------------------------*/}
                 <div className="questions-container">
                 <h2 id="faq">QUESTIONS</h2>
-                  <div id="questions-list">
+                  <div id="qa-list">
                     {questionsList}
                   </div>
                   <div>
-                    <button className="ui button" onClick={this.clickFormHandler}>Ask Away</button>
+                    <button className="ui button" onClick={this.clickFormHandlerQF}>Ask</button>
                   </div>
                   <div>
                     {
-                      this.state.clicked === true
-                      ? <QuestionForm plant={this.props.plant}/>
+                      this.state.clickedQF === true
+                      ? <QuestionForm plant={this.props.plant} submitHandler={this.submitHandlerQF}/>
                       : null
                     }
                   </div>
@@ -131,13 +181,26 @@ class PlantProfile extends Component {
 
                 <div className="answers-container">
                   <h2>{this.state.clickedQuestion.question}</h2>
-                  {
-                    Array.isArray(this.state.clickedQuestion.answers) === true
-                    ? this.state.clickedQuestion.answers.map(answerObj => {
-                      return <Answer key={answerObj.name} answer={answerObj} />
-                    })
-                    : <Answer answer={this.state.clickedQuestion.answers} />
-                  }
+                  <div id="qa-list">
+                    {
+                      Array.isArray(this.state.clickedQuestion.answers) === true
+                      ? this.state.clickedQuestion.answers.map(answerObj => {
+                        return <Answer answer={answerObj} />
+                        })
+                      : <Answer answer={this.state.clickedQuestion.answers} />
+                    }
+                  </div>
+                  <div>
+                    <button className="ui button" onClick={this.clickFormHandlerAF}>Answer</button>
+                  </div>
+
+                  <div>
+                    {
+                      this.state.clickedAF === true
+                      ? <AnswerForm question={this.state.clickedQuestion} submitHandler={this.submitHandlerAF}/>
+                      : null
+                    }
+                  </div>
                 </div>
 
       </div>
