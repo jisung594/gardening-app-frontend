@@ -1,18 +1,15 @@
-// import React from 'react'
-import React, { Component } from 'react'
+import React from 'react'
+// import React, { Component } from 'react'
 
-// const Question = props => {
-//   let { questionObj, clickHandler } = props;
+// class Question extends Component {
+const Question = props => {
+  let { questionObj, clickHandler } = props;
 
-class Question extends Component {
-
-  render () {
-    return (
-      <div className="question-li">
-        <h4 onClick={()=>this.props.clickHandler(this.props.questionObj)}>{this.props.questionObj.question}</h4>
-      </div>
-    )
-  }
+  return (
+    <div className="question-li">
+      <h4 onClick={()=>clickHandler(questionObj)}>{questionObj.question}</h4>
+    </div>
+  )
 }
 
 export default Question;

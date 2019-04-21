@@ -18,7 +18,7 @@ class PlantProfile extends Component {
 
 // FETCHES QUESTIONS DATA FOR SPECIFIC PLANT ---------------
   componentDidMount() {
-    fetch('http://localhost:3000/questions')
+    fetch('http://localhost:3000/api/v1/questions')
       .then(res => res.json())
       .then(questions => {
         let plantQuestions = questions.filter(questionObj => {
@@ -73,7 +73,16 @@ clickFormHandlerAF = () => {
 }
 
 submitHandlerAF = (obj) => {
-  fetch(`http://localhost:3000/questions/${this.state.clickedQuestion.id}`, {
+
+  let answers = [obj, ...this.state.clickedQuestion.answers]
+  let clickedQuestionCopy = this.state.clickedQuestion
+  clickedQuestionCopy.answers = answers
+
+  this.setState({
+    clickedQuestion: clickedQuestionCopy
+  })
+
+  fetch(`http://localhost:3000/api/v1/questions/${this.state.clickedQuestion.id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -180,7 +189,7 @@ submitHandlerAF = (obj) => {
                 </div>
 
                 <div className="answers-container">
-                  <h2>{this.state.clickedQuestion.question}</h2>
+                  <h2 id="clicked-question">{this.state.clickedQuestion.question}</h2>
                   <div id="qa-list">
                     {
                       Array.isArray(this.state.clickedQuestion.answers) === true

@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/plants")
+    fetch("http://localhost:3000/api/v1/plants")
       .then(res => res.json())
       .then(plantData => this.setState({
         plants: plantData,
@@ -38,12 +38,23 @@ class App extends Component {
       this.setState({
         filteredPlants: sortedByGrowable
       })
-    } else {
+    }
+    if (event.target.id === "alphabetical") {
       let sortedByName = this.state.plants.sort((p1,p2) => {
         return p1.name.toLowerCase().localeCompare(p2.name.toLowerCase())
       })
       this.setState({
         filteredPlants: sortedByName
+      })
+    }
+
+    if (event.target.id === "plant-type") {
+      let vegetableList = this.state.plants.filter(plant => {
+        // return plant.type === "Vegetable"
+        return plant.plant_type === "Vegetable"
+      })
+      this.setState({
+        filteredPlants: vegetableList
       })
     }
   }
@@ -52,7 +63,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav changeHandler={this.changeHandler} clickHandler={this.clickHandler} plants={this.state.filteredPlants}/>
+        <Nav changeHandler={this.changeHandler} clickHandler={this.clickHandler}/>
+
         <PlantContainer plants={this.state.filteredPlants}/>
       </div>
     );

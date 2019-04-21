@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 class AnswerForm extends Component {
 
   state = {
-    name: "",
+    user_id: 0,
+    plant_id: 0,
     answer_str: ""
   }
 
@@ -19,7 +20,8 @@ class AnswerForm extends Component {
     this.props.submitHandler(this.state)
 
     this.setState({
-      name: "",
+      user_id: 0,
+      plant_id: 0,
       answer_str: ""
     })
   }
@@ -29,9 +31,9 @@ class AnswerForm extends Component {
     return (
       <div>
         <form className="ui form" onSubmit={this.submitHandler}>
-          <h4 className="ui dividing header">Answer</h4>
+          <h4 className="ui dividing header">What do you think?</h4>
             <div className="field">
-              <input type="text" name="name" value={this.state.name} placeholder="Your Name" onChange={this.changeHandler}/>
+              <input type="text" name="name" value={this.state.user_id} placeholder="Your Name" onChange={this.changeHandler}/>
             </div>
             <div className="field">
               <input type="text" name="answer_str" value={this.state.answer_str} placeholder="Answer" onChange={this.changeHandler}/>

@@ -19,17 +19,13 @@ class PlantContainer extends Component {
     })
   }
 
-
   render() {
-    // console.log("rendering", this.state.clickedPlant)
-
     let plantList = this.props.plants.map(plantObj => {
       return (
         // 1.
         <PlantCard key={plantObj.id} plant={plantObj} buttonHandler={this.buttonHandler}/>
       )
     })
-
 
     return (
       <div className="ui grid container">

@@ -7,8 +7,8 @@ import React, { Component } from 'react';
 class QuestionForm extends Component {
 
   state = {
-    name: "",
-    question: "",
+    question_str: "",
+    user_id: 0,
     plant_id: this.props.plant.id,
     answers: {}
   }
@@ -24,22 +24,22 @@ class QuestionForm extends Component {
 
     this.props.submitHandler(this.state)
 
-    fetch("http://localhost:3000/questions", {
+    fetch("http://localhost:3000/api/v1/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user: this.state.nameInput,
-        question: this.state.questionInput,
+        question_str: this.state.questionInput,
+        user_id: this.state.user_idInput,
         plant_id: this.state.plantId,
         answers: this.state.answers
       })
     })
 
     this.setState({
-      name: "",
-      question: "",
+      question_str: "",
+      user_id: 0,
       plant_id: this.props.plant.id,
       answers: {}
     })
@@ -51,9 +51,6 @@ class QuestionForm extends Component {
       <div>
         <form className="ui form" onSubmit={this.submitHandler}>
           <h4 className="ui dividing header">Ask about {this.props.plant.name}</h4>
-            <div className="field">
-              <input type="text" name="name" value={this.state.name} onChange={this.changeHandler} placeholder="Your Name"/>
-            </div>
             <div className="field">
               <input type="text" name="question" value={this.state.question} onChange={this.changeHandler} placeholder="Question"/>
             </div>

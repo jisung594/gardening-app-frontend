@@ -21,6 +21,7 @@ class PlantCard extends Component {
   }
 
   render() {
+    console.log(this.props.plant.growability)
     return (
       <div className="ui four wide column" onClick={this.clickHandler}>
           {this.state.clicked === true
@@ -32,10 +33,10 @@ class PlantCard extends Component {
                     <p className="detail">{this.props.plant.family_name}</p>
                   <span>Flower Color:</span>
                     <p className="detail">{this.props.plant.flower_color}</p>
-                  <span>Foliage Color:</span>
-                    <p className="detail">{this.props.plant.foliage_color}</p>
-                  <span>Foliage Texture:</span>
-                    <p className="detail">{this.props.plant.foliage_texture}</p>
+                  <span>Growability:</span>
+                    <p className="detail">{this.props.plant.growability}/10</p>
+                  <span>Type:</span>
+                    <p className="detail">{this.props.plant.plant_type}</p>
                 </div>
 
                 <div>
@@ -51,20 +52,14 @@ class PlantCard extends Component {
 
                 <div className="content">
                   <div className="header">
-                    <h2 className="plant-name">{this.props.plant.name}</h2>
+                    <h2 className="plant-name">{this.props.plant.name.toUpperCase()}</h2>
                   </div>
                 </div>
               </div>)}
       </div>
-
-
-
     )
   }
 }
-
-
-
 // }
 
 export default PlantCard;

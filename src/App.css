@@ -43,10 +43,10 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 150px 50px; */
   align-items: stretch;
   /* background-color: white; */
 }
-
 
 
 /* PlantProfile SECTION */
@@ -91,19 +91,21 @@
 
 /* questions container at the bottom */
 .questions-container {
+  text-align: left;
   display: grid;
-  grid-template-rows: 50px 100px 100px 100px;
+  grid-template-rows: 60px 250px;
   /* grid-column-start: 1;
   grid-column-end: 2; */
   padding: 40px;
 }
 
-.question-li {
+/* .question-li {
   padding: 5px;
-}
+} */
 
 #qa-list {
-  height: 200px;
+  height: 100px;
+  display: grid;
 }
 
 #faq {
@@ -113,8 +115,30 @@
 }
 
 .answers-container {
+  text-align: left;
+  display: grid;
+  grid-template-rows: 60px 250px;
   padding: 40px;
 }
+
+#clicked-question {
+  font-family: "Montserrat", "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.answer-user {
+  /* text-align: left; */
+  line-height: 0.8px;
+}
+
+.answer-div {
+  padding-bottom: 14px;
+}
+
+/* .answer-item {
+  padding: 14px;
+} */
 
 .search-container {
   display: flex;
@@ -146,10 +170,8 @@
 .button-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
 }
-
-
 
 #logo-name {
 	font-family: "Montserrat Subrayada", "Open Sans", Helvetica, Arial, sans-serif;
@@ -173,7 +195,6 @@
   margin-top: 0px;
   margin-left: 0px;
 }
-
 
 .ui.image {
   min-width: 150px;
@@ -203,8 +224,6 @@
   grid-template-rows: 350px 20px;
 }
 
-
-
 .ui.raised.card {
   overflow: hidden;
   object-fit: contain;
@@ -218,6 +237,9 @@
 
 .detail-container {
   margin: auto 0;
+  color: white;
+  text-shadow: 2px 2px #e2a100;
+  height: 250px;
 }
 
 /* .ui.fluid.card {
@@ -235,8 +257,8 @@
 .plant-name {
   font-family: "Montserrat", "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 23px;
-  font-size: 1.0vw;
-  color: white;
+  font-size: 0.9vw;
+  color: #fff2d6;
 }
 
 .plant-name-2 {
@@ -247,6 +269,15 @@
   line-height: 0.8;
 }
 
+.ui.toggle.button {
+  background-color: white;
+  color: #f2ac00;
+}
+
+.ui.toggle.button:focus {
+  background-color: #f2ac00;
+  color: white;
+}
 
 .content {
   display: flex;
@@ -257,9 +288,9 @@
 .detail {
   font-family: "Montserrat", "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 20px;
-  font-size: 1.04vw;
+  font-size: 1.2vw;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.1;
   /* padding-top: 10px; */
 }
 
@@ -271,3 +302,7 @@ li {
   height: 1000px;
   width: 600px;
 } */
+
+.ui.form {
+  margin-top: 50px;
+}

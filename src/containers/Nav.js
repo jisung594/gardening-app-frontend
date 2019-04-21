@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Search from '../components/Search'
-import PlantContainer from './PlantContainer'
+// import PlantContainer from './PlantContainer'
 
+// <div className="or"></div>
 class Nav extends Component {
+
   render() {
     return (
       <div className="wrapper">
@@ -10,13 +12,13 @@ class Nav extends Component {
         <div className="button-menu">
           <div className="ui buttons">
             <button id="growability" className="ui toggle button" onClick={this.props.clickHandler}>GROWABILITY</button>
-            <div className="or"></div>
             <button id="alphabetical" className="ui toggle button" onClick={this.props.clickHandler}>A-Z</button>
+            <button id="plant-type" className="ui toggle button" onClick={this.props.clickHandler}>TYPE</button>
           </div>
         </div>
 
         <div className="main-header">
-          <span id="logo-name" onClick={() => { return <PlantContainer plants={this.props.plants}/> }}>CROPSCITY</span>
+          <span id="logo-name">CROPSCITY</span>
           <br/>
           <span id="sub-header">The City Farmer's Resource</span>
         </div>
