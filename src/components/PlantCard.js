@@ -21,7 +21,6 @@ class PlantCard extends Component {
   }
 
   render() {
-    console.log(this.props.plant.growability)
     return (
       <div className="ui four wide column" onClick={this.clickHandler}>
           {this.state.clicked === true

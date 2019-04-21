@@ -133,12 +133,13 @@
 }
 
 .answer-div {
-  padding-bottom: 14px;
+  margin: 0px 0px 0px 0px;
+  height: 20px;
 }
 
-/* .answer-item {
-  padding: 14px;
-} */
+.answer-item {
+  margin: 0px 0px 0px 0px;
+}
 
 .search-container {
   display: flex;
@@ -170,7 +171,7 @@
 .button-menu {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 #logo-name {

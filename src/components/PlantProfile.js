@@ -11,7 +11,9 @@ class PlantProfile extends Component {
 
   state = {
     questions: [],
+    answers: [],
     clickedQuestion: {},
+    filteredAnswers: [],
     clickedQF: false,
     clickedAF: false
   }
@@ -28,13 +30,29 @@ class PlantProfile extends Component {
           questions: plantQuestions
         })
       })
+
+    fetch('http://localhost:3000/api/v1/answers')
+      .then(res => res.json())
+      .then(answers => {
+        this.setState({
+          answers: answers
+        })
+      })
   }
 
 // ************************ QUESTION FORM ONLY *********************************
   // saves the question clicked on (to state) ----------
   clickHandlerQF = (questionObj) => {
+    let filteredAnswers
+    if (this.state.answers) {
+      filteredAnswers = this.state.answers.filter(answerObj => {
+        return answerObj.question_id === questionObj.id
+      })
+    }
+
     this.setState({
-      clickedQuestion: questionObj
+      clickedQuestion: questionObj,
+      filteredAnswers: filteredAnswers
     })
   }
 
@@ -72,50 +90,28 @@ clickFormHandlerAF = () => {
   }
 }
 
+
 submitHandlerAF = (obj) => {
-
-  let answers = [obj, ...this.state.clickedQuestion.answers]
-  let clickedQuestionCopy = this.state.clickedQuestion
-  clickedQuestionCopy.answers = answers
-
-  this.setState({
-    clickedQuestion: clickedQuestionCopy
-  })
-
-  fetch(`http://localhost:3000/api/v1/questions/${this.state.clickedQuestion.id}`, {
-    method: "PATCH",
+  fetch('http://localhost:3000/api/v1/answers', {
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      // how do you add the object to this question's list of answers **************
-      // [this.state.clickedQuestion.answers]: [obj, ...this.state.clickedQuestion.answers]
-      answers:
-        Array.isArray(this.state.clickedQuestion.answers) === true
-        ? [obj, ...this.state.clickedQuestion.answers]
-        : [obj, this.state.clickedQuestion.answers]
-
-    })
+    body: JSON.stringify(obj)
   })
+    .then(res => res.json())
+    .then(answerObj => {
+      this.setState({
+        filteredAnswers: [obj, ...this.state.filteredAnswers]
+      })
+    })
 }
 
 
-
   render() {
-
-    // let answersList = () => {
-    //   Array.isArray(this.state.clickedQuestion.answers) === true
-    //   ? this.state.clickedQuestion.answers.map(answerObj => {
-    //     return <Answer key={answerObj.name} answer={answerObj} />
-    //   })
-    //   : <Answer answer={this.state.clickedQuestion.answers} />
-    // }
-
-
     let questionsList = [...this.state.questions].map(questionObj => {
       return <Question key={questionObj.id} questionObj={questionObj} plant={this.props.plant} clickHandler={this.clickHandlerQF} />
     })
-
 
     return (
       <div className="plant-container">
@@ -189,14 +185,15 @@ submitHandlerAF = (obj) => {
                 </div>
 
                 <div className="answers-container">
-                  <h2 id="clicked-question">{this.state.clickedQuestion.question}</h2>
+                  <h2 id="clicked-question">{this.state.clickedQuestion.question_str}</h2>
                   <div id="qa-list">
-                    {
-                      Array.isArray(this.state.clickedQuestion.answers) === true
-                      ? this.state.clickedQuestion.answers.map(answerObj => {
-                        return <Answer answer={answerObj} />
-                        })
-                      : <Answer answer={this.state.clickedQuestion.answers} />
+                    { this.state.filteredAnswers.length > 0
+                      ? this.state.filteredAnswers.map(answerObj => {
+                        return <Answer key={answerObj.id} answer={answerObj} />
+                      }) :
+                      this.state.filteredAnswers.length === 0 && this.state.clickedQuestion.id
+                      ? <h3>Be the first to answer this question!</h3>
+                      : null
                     }
                   </div>
                   <div>
@@ -206,7 +203,7 @@ submitHandlerAF = (obj) => {
                   <div>
                     {
                       this.state.clickedAF === true
-                      ? <AnswerForm question={this.state.clickedQuestion} submitHandler={this.submitHandlerAF}/>
+                      ? <AnswerForm question={this.state.clickedQuestion} plant={this.props.plant} submitHandler={this.submitHandlerAF}/>
                       : null
                     }
                   </div>

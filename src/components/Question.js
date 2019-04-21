@@ -7,7 +7,7 @@ const Question = props => {
 
   return (
     <div className="question-li">
-      <h4 onClick={()=>clickHandler(questionObj)}>{questionObj.question}</h4>
+      <h4 onClick={()=>clickHandler(questionObj)}>{questionObj.question_str}</h4>
     </div>
   )
 }
