@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/api/v1/plants")
+    fetch("http://cropscity-api.herokuapp.com/api/v1/plants")
       .then(res => res.json())
       .then(plantData => this.setState({
         plants: plantData,
@@ -64,7 +64,6 @@ class App extends Component {
     return (
       <div className="App">
         <Nav changeHandler={this.changeHandler} clickHandler={this.clickHandler}/>
-
         <PlantContainer plants={this.state.filteredPlants}/>
       </div>
     );

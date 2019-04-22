@@ -23,7 +23,7 @@ class QuestionForm extends Component {
 
     this.props.submitHandler(this.state)
 
-    fetch("http://localhost:3000/api/v1/questions", {
+    fetch("http://cropscity-api.herokuapp.com/api/v1/questions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -44,7 +44,6 @@ class QuestionForm extends Component {
 
 
   render () {
-    console.log(this.state)
     return (
       <div>
         <form className="ui form" onSubmit={this.submitHandler}>

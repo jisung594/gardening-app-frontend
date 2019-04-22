@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import Search from '../components/Search'
 // import PlantContainer from './PlantContainer'
 
-// <div className="or"></div>
 class Nav extends Component {
-
   render() {
     return (
       <div className="wrapper">
