@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("http://cropscity-api.herokuapp.com/api/v1/plants")
+    fetch("https://cropscity-api.herokuapp.com/api/v1/plants")
       .then(res => res.json())
       .then(plantData => this.setState({
         plants: plantData,

@@ -20,7 +20,7 @@ class PlantProfile extends Component {
 
 // FETCHES QUESTIONS DATA FOR SPECIFIC PLANT ---------------
   componentDidMount() {
-    fetch('http://cropscity-api.herokuapp.com/api/v1/questions')
+    fetch('https://cropscity-api.herokuapp.com/api/v1/questions')
       .then(res => res.json())
       .then(questions => {
         let plantQuestions = questions.filter(questionObj => {
@@ -31,7 +31,7 @@ class PlantProfile extends Component {
         })
       })
 
-    fetch('http://cropscity-api.herokuapp.com/api/v1/answers')
+    fetch('https://cropscity-api.herokuapp.com/api/v1/answers')
       .then(res => res.json())
       .then(answers => {
         this.setState({
@@ -92,7 +92,7 @@ clickFormHandlerAF = () => {
 
 
 submitHandlerAF = (obj) => {
-  fetch('http://cropscity-api.herokuapp.com/api/v1/answers', {
+  fetch('https://cropscity-api.herokuapp.com/api/v1/answers', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
