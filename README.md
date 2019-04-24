@@ -13,3 +13,18 @@ Gardening can be a tricky hobby to keep in the city. Environmental factors, such
 
 <b>Other</b>
 - [Semantic UI](https://semantic-ui.com/)
+
+## Installation Instructions
+Once the backend server is running, run the following commands 
+```
+npm install && npm start
+```
+in your terminal to launch the frontend components.
+
+
+** Respond with "Y"  when you are prompted with
+```
+Something is already running on port 3000
+
+Would you like to run the app on another port instead? (Y/n)
+```
